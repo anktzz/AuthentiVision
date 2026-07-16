@@ -1,0 +1,28 @@
+# Python
+venv/
+__pycache__/
+**/__pycache__/
+*.pyc
+*.pyo
+.env
+
+# Node / frontend build
+frontend/node_modules/
+frontend/dist/
+
+# Model weights (keep the main checkpoint, ignore generated ONNX files)
+backend/models/weights/*
+!backend/models/weights/.gitkeep
+!backend/models/weights/effnb4_best.pth
+
+# Test data (large video files — don't commit these)
+backend/data/*
+!backend/data/.gitkeep
+
+# OS / editor cruft
+.DS_Store
+.vscode/
+.idea/
+
+# Temp files, logs
+*.log

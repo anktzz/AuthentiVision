@@ -1,0 +1,29 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+# forces CPU-only torch wheels, avoids ~10 extra nvidia-*/triton packages pulled in by the default GPU build
+
+fastapi>=0.115.0
+uvicorn[standard]>=0.32.0
+python-multipart>=0.0.12
+
+opencv-python-headless==4.13.0.92
+# pinned: 4.13.0.90 had a headless-import bug (missing libxcb.so.1); 4.13.0.92 is the fix; 5.0 has breaking API changes
+
+torch>=2.13.0
+torchvision>=0.20.0
+
+efficientnet-pytorch>=0.7.1
+# EfficientNet-B4 backbone, replaces timm entirely — see backend/pipeline/backbone.py
+
+numpy>=2.0.0
+
+pillow>=12.0.0
+# >=12.0.0 is required for prebuilt Python 3.14 wheels
+
+requests>=2.32.0
+tqdm>=4.66.0
+# facenet-pytorch's real runtime deps — it's installed separately with --no-deps, see setup.sh
+
+# ONNX Runtime CPU inference acceleration (3x faster CPU execution)
+onnxruntime>=1.16.0
+onnx>=1.15.0
+onnxscript>=0.1.0

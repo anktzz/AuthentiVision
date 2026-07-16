@@ -1,0 +1,1 @@
+Drop your EfficientNet-B4 checkpoint here as either deepfake_classifier.pt or .pth — the loader picks up whichever it finds. See the "Using your own checkpoint" section in README.md for the key-naming conventions it tries automatically.
