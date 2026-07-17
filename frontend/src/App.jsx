@@ -4,6 +4,18 @@ import { detectDeepfake } from "./api";
 const MAX_UPLOAD_BYTES = 250 * 1024 * 1024;
 const ACCEPTED_EXTENSIONS = new Set(["mp4", "mov", "avi", "mkv", "webm"]);
 
+const getCleanedJson = (res) => {
+  if (!res) return "";
+  const cleaned = { ...res };
+  if (cleaned.frames) {
+    cleaned.frames = cleaned.frames.map((f) => ({
+      ...f,
+      thumbnail: f.thumbnail ? `[base64 image, ${f.thumbnail.length} chars]` : null,
+    }));
+  }
+  return JSON.stringify(cleaned, null, 2);
+};
+
 function App() {
   const inputRef = useRef(null);
   const [file, setFile] = useState(null);
@@ -316,11 +328,11 @@ function App() {
                   <dt>Fine-tuned weights</dt>
                   <dd>{result.using_finetuned_weights ? "yes" : "no"}</dd>
                 </dl>
-                <pre className="raw-json">{JSON.stringify(result, null, 2)}</pre>
+                <pre className="raw-json">{getCleanedJson(result)}</pre>
                 <div className="actions">
                   <button
                     className="btn btn-outline w-full"
-                    onClick={() => navigator.clipboard.writeText(JSON.stringify(result, null, 2))}
+                    onClick={() => navigator.clipboard.writeText(getCleanedJson(result))}
                   >
                     Copy raw JSON
                   </button>
