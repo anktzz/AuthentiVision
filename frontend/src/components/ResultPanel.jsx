@@ -91,9 +91,9 @@ function ResultPanel({ result, health }) {
           <span className="section-heading">Frame-by-frame score</span>
           <ScopeTrace frames={result.frames} scoreDistribution={result.score_distribution} />
           <div className="scope-stats">
-            Min {(result.score_distribution.minimum * 100).toFixed(0)}% · Max{" "}
-            {(result.score_distribution.maximum * 100).toFixed(0)}% · Spread{" "}
-            {(result.score_distribution.spread * 100).toFixed(0)}%
+            Min {result.score_distribution.minimum.toFixed(4)} · Max{" "}
+            {result.score_distribution.maximum.toFixed(4)} · Spread{" "}
+            {result.score_distribution.spread.toFixed(4)}
           </div>
         </div>
       )}

@@ -658,24 +658,33 @@ summary:focus-visible {
 
 .scope-midline {
     stroke: var(--border-strong);
-    stroke-width: 1;
+    stroke-width: 1.5;
+    stroke-dasharray: 4 4;
 }
 
 .scope-avgline {
     stroke: var(--accent);
-    stroke-width: 1;
-    opacity: 0.6;
+    stroke-width: 1.5;
+    opacity: 0.85;
 }
 
 .scope-trace {
     stroke: var(--accent);
-    stroke-width: 2.2;
+    stroke-width: 3.2;
     stroke-linejoin: round;
     stroke-linecap: round;
 }
 
-.scope-dot-real { fill: var(--real); }
-.scope-dot-fake { fill: var(--fake); }
+.scope-dot-real { 
+    fill: var(--real); 
+    stroke: var(--surface);
+    stroke-width: 1.5;
+}
+.scope-dot-fake { 
+    fill: var(--fake); 
+    stroke: var(--surface);
+    stroke-width: 1.5;
+}
 
 .scope-empty {
     font-family: var(--font-sans);
@@ -702,8 +711,9 @@ summary:focus-visible {
 .scope-stats {
     margin-top: 8px;
     font-family: var(--font-mono);
-    font-size: 0.72rem;
-    color: var(--muted);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--ink-secondary);
     text-align: right;
 }
 
