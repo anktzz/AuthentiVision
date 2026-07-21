@@ -5,10 +5,10 @@ Samples frames from an uploaded video, detects and crops any face in each frame,
 ## Screenshots
 
 ### 1. Uploader Dashboard
-![Uploader Dashboard](images/Dashboard.png)
+![Uploader Dashboard](images/dashboard.png)
 
 ### 2. Results and Analysis
-![Results Screen](images/Output.png)
+![Results Screen](images/output.png)
 
 ## Using your own checkpoint
 
