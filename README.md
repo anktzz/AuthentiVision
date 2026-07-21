@@ -103,20 +103,39 @@ AuthentiVision/
 * Python 3.11 – 3.13
 * Node.js 18+
 
-### Setup Script
-Install all python dependencies (using CPU-only wheels for PyTorch to avoid unnecessary CUDA bulk), configure virtual environment, and compile the React frontend:
+### 1. Installation & Environment Setup
+
+#### Linux / macOS
+Run the one-time shell setup script to create the virtual environment, install PyTorch (CPU-only version to avoid CUDA bulk) and other backend requirements, and build the React frontend:
 ```bash
 ./setup.sh
 ```
 
-### Running the App
-1. Activate the virtual environment and start the FastAPI server:
-   ```bash
-   source venv/bin/activate
-   cd backend
-   uvicorn main:app --reload
-   ```
-2. Visit `http://localhost:8000` to access the application.
+#### Windows
+Run the batch setup script (or double-click `setup.bat` in File Explorer) to configure your Python environment and build the frontend assets:
+```cmd
+setup.bat
+```
+
+### 2. Running the Server
+
+#### Linux / macOS
+Activate the virtual environment, navigate to the `backend/` directory, and run the FastAPI server via Uvicorn:
+```bash
+source venv/bin/activate
+cd backend
+uvicorn main:app --reload
+```
+
+#### Windows
+Activate the virtual environment, navigate to the `backend/` directory, and run the Uvicorn server:
+```cmd
+venv\Scripts\activate.bat
+cd backend
+uvicorn main:app --reload
+```
+
+After running the server, visit `http://localhost:8000` to launch the application interface.
 
 *Note: For frontend development with Hot Module Replacement (HMR), run `npm run dev` in the `frontend/` folder in a separate terminal. It will proxy API requests to port `8000` automatically.*
 
