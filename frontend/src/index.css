@@ -1,38 +1,39 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap");
 
 :root {
-    /* surfaces */
-    --bg: #f4f5f7;
-    --surface: #ffffff;
-    --surface-sunken: #f8f9fb;
-    --border: #e3e6ec;
-    --border-strong: #cbd1dc;
+    /* surfaces - cool slate / ice blue */
+    --bg: #f3f5f9;              /* cool light ice blue */
+    --surface: #ffffff;         /* pure white for cards */
+    --surface-sunken: #f8fafc;  /* slate-50 */
+    --border: #e2e8f0;          /* slate-200 */
+    --border-strong: #cbd5e1;   /* slate-300 */
 
     /* text */
-    --ink: #14171f;
-    --ink-soft: #454b58;
-    --muted: #6b7280;
+    --ink: #0f172a;             /* slate-900 */
+    --ink-soft: #334155;        /* slate-700 */
+    --muted: #64748b;           /* slate-500 */
 
-    /* signature accent — "scanner teal", the vision/verification color */
-    --accent: #0f6e8c;
-    --accent-strong: #0b5670;
-    --accent-soft: #e6f2f5;
+    /* signature accent — cool steel blue */
+    --accent: #2563eb;          /* blue-600 */
+    --accent-strong: #1d4ed8;   /* blue-700 */
+    --accent-soft: #eff6ff;     /* blue-50 */
 
-    /* semantic */
-    --real: #1f8a5f;
-    --real-bg: #eaf7f0;
-    --fake: #c23b33;
-    --fake-bg: #fbeae9;
-    --warn: #b4790f;
-    --warn-bg: #fdf3e3;
+    /* semantic - cool desaturated tones */
+    --real: #0d9488;            /* teal-600 */
+    --real-bg: #f0fdfa;         /* teal-50 */
+    --fake: #e11d48;            /* rose-600 */
+    --fake-bg: #fff1f2;         /* rose-50 */
+    --warn: #d97706;            /* amber-600 */
+    --warn-bg: #fffbeb;         /* amber-50 */
 
-    --radius-lg: 14px;
-    --radius-md: 10px;
+    --radius-lg: 12px;
+    --radius-md: 8px;
     --radius-sm: 6px;
 
-    --shadow-card: 0 1px 2px rgba(16, 24, 40, 0.04), 0 1px 3px rgba(16, 24, 40, 0.03);
-    --shadow-card-hover: 0 2px 4px rgba(16, 24, 40, 0.05), 0 10px 24px -10px rgba(16, 24, 40, 0.14);
-    --shadow-btn-hover: 0 6px 16px -6px rgba(15, 110, 140, 0.4);
+    /* soft, clean light shadows */
+    --shadow-card: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+    --shadow-card-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+    --shadow-btn-hover: 0 4px 12px rgba(37, 99, 235, 0.15);
 
     --font-display: "Space Grotesk", sans-serif;
     --font-sans: "Inter", sans-serif;
@@ -45,7 +46,10 @@
 
 body {
     margin: 0;
-    background: radial-gradient(circle at 12% -10%, #ffffff 0%, var(--bg) 55%);
+    background-color: var(--bg);
+    background-image: 
+        radial-gradient(var(--border-strong) 1px, transparent 1px);
+    background-size: 20px 20px;
     color: var(--ink);
     font-family: var(--font-sans);
     line-height: 1.5;
@@ -162,7 +166,7 @@ summary:focus-visible {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
     gap: 20px;
-    align-items: start;
+    align-items: stretch;
 }
 
 @media (max-width: 860px) {
@@ -176,9 +180,18 @@ summary:focus-visible {
     border: 1px solid var(--border);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-card);
-    padding: 22px;
-    transition: box-shadow 0.2s ease;
+    padding: 20px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
     animation: rise 0.35s ease both;
+    
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.bay-panel > .actions {
+    margin-top: auto;
+    padding-top: 14px;
 }
 
 @keyframes rise {
@@ -392,9 +405,9 @@ summary:focus-visible {
 
 .error-box {
     margin-top: 14px;
-    border: 1px solid #f0c4c0;
+    border: 1px solid rgba(225, 29, 72, 0.2);
     background: var(--fake-bg);
-    color: #8a2b25;
+    color: var(--fake);
     border-radius: var(--radius-sm);
     padding: 10px 12px;
     font-family: var(--font-sans);
@@ -475,13 +488,13 @@ summary:focus-visible {
 }
 
 .verdict-strip.verdict-real {
-    border-color: #cfe9db;
+    border-color: rgba(13, 148, 136, 0.2);
     border-left-color: var(--real);
     background: var(--real-bg);
 }
 
 .verdict-strip.verdict-fake {
-    border-color: #f0cbc7;
+    border-color: rgba(225, 29, 72, 0.2);
     border-left-color: var(--fake);
     background: var(--fake-bg);
 }
@@ -733,9 +746,9 @@ summary:focus-visible {
     font-size: 0.85rem;
     padding: 10px 12px;
     border-radius: var(--radius-sm);
-    border: 1px solid #f0e0bc;
+    border: 1px solid rgba(217, 119, 6, 0.2);
     background: var(--warn-bg);
-    color: #7a5209;
+    color: var(--warn);
 }
 
 /* ---------- frame gallery ---------- */
