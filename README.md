@@ -141,22 +141,6 @@ After running the server, visit `http://localhost:8000` to launch the applicatio
 
 ---
 
-## Docker & Hugging Face Spaces Deployment
-
-A multi-stage [Dockerfile](file:///home/crazy/Documents/stuff/AuthentiVision/Dockerfile) is provided in the project root to build and run the frontend and backend in a single container.
-
-### Deploying to Hugging Face Spaces
-1. **Create Space**: Go to Hugging Face and create a new Space. Choose **Docker** as the SDK and use the **Blank** template.
-2. **Git LFS Track Weights**: The model weights `effnb4_best.pth` (~71 MB) must be tracked via Git Large File Storage (LFS) to prevent push failures:
-   ```bash
-   git lfs install
-   git lfs track "backend/models/weights/effnb4_best.pth"
-   git add .gitattributes
-   ```
-3. **Commit & Push**: Add all files, commit, and push your repository to your Hugging Face Space repository. The Docker container runs as non-root UID `1000` on port `7860` as required by Spaces.
-
----
-
 ## API Endpoints
 
 ### 1. Detect Video (`POST /detect`)
