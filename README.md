@@ -2,6 +2,14 @@
 
 Samples frames from an uploaded video, detects and crops any face in each frame, classifies each with an EfficientNet-B4 model, and returns a real/fake verdict with a confidence score, a per-frame gallery, and data-driven quality flags. CPU only, single process — FastAPI serves both the built React UI and the `/detect` API from one port.
 
+## Screenshots
+
+### 1. Uploader Dashboard
+![Uploader Dashboard](images/Dashboard.png)
+
+### 2. Results and Analysis
+![Results Screen](images/Output.png)
+
 ## Using your own checkpoint
 
 Drop your EfficientNet-B4 checkpoint at `backend/models/weights/deepfake_classifier.pt` (or `.pth` — either extension is picked up automatically).
