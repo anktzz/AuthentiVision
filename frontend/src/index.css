@@ -723,11 +723,11 @@ summary:focus-visible {
 
 .scope-stats {
     margin-top: 8px;
-    font-family: var(--font-mono);
+    font-family: var(--font-sans); /* Use standard sans-serif font */
     font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--ink-secondary);
-    text-align: right;
+    font-weight: 400; /* Standard weight, not bold */
+    color: var(--ink-soft);
+    text-align: center; /* Centered */
 }
 
 /* ---------- quality flags ---------- */
